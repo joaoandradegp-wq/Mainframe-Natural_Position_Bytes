@@ -1,7 +1,7 @@
 <h1 align="center">📊 Natural Position Bytes</h1>
 
 <p align="center">
-Ferramenta para análise, validação e cálculo automático de tamanho de variáveis em estruturas Natural (Adabas).
+Ferramenta para análise e cálculo automático de posições (bytes) em estruturas de variáveis Natural.
 </p>
 
 <p align="center">
@@ -14,130 +14,60 @@ Ferramenta para análise, validação e cálculo automático de tamanho de vari�
 
 ## 📌 Sobre
 
-O **Natural Variable Size Analyzer** foi desenvolvido para automatizar a análise de estruturas de variáveis em sistemas legados escritos em Natural.
+O **Natural Position Bytes** foi criado para resolver um problema clássico em sistemas legados:  
+o cálculo manual de posições e tamanho de variáveis em estruturas Natural.
 
-A ferramenta interpreta definições de variáveis, valida a sintaxe e calcula automaticamente o tamanho em bytes, além de gerar os offsets de posição (início e fim).
+Ao trabalhar com definições como:
+01 CLIENTE (A10)
+02 IDADE (N3)
+02 SALDO (P7,2)
 
-Ideal para quem trabalha com manutenção, migração ou entendimento de sistemas antigos.
 
----
+é comum precisar calcular manualmente offsets, tamanhos e regras específicas de cada tipo — o que é propenso a erro e consome tempo.
 
-## ⚙️ Funcionalidades
-
-<table style="border: none; border-collapse: collapse;">
-
-<tr>
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 🔍 LEITURA DE ESTRUTURA
-
-Interpreta linhas no padrão Natural como:
-
-01 VAR (A10)  
-02 CAMPO (N5,2)
-
-Identificando índice, nome e tipo da variável.
-
-<br><br>
-</td>
-
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 🧠 VALIDAÇÃO INTELIGENTE
-
-Detecta automaticamente:
-
-- Parênteses não fechados  
-- Tipos inválidos  
-- Uso incorreto de REDEFINES  
-- Estruturas inconsistentes  
-
-<br>
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 🧮 CÁLCULO DE TAMANHO
-
-Calcula automaticamente o tamanho em bytes considerando:
-
-- Tipos (A, N, P, etc.)  
-- Decimais (,)  
-- Multiplicadores (/)  
-- Intervalos (:)  
-
-Inclui regra especial para tipo **Packed (P)**.
-
-<br><br>
-</td>
-
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 📏 GERAÇÃO DE OFFSETS
-
-Define automaticamente:
-
-- Posição inicial  
-- Posição final  
-
-Exemplo:
-
-/* 001 - 010 */
-
-<br>
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 🔁 SUPORTE A REDEFINE
-
-Reconhece blocos com <b>REDEFINE</b> (Natural)  
-Ignora corretamente no cálculo principal para evitar duplicidade.
-
-<br><br>
-</td>
-
-<td width="50%" valign="top" style="border: none; padding: 15px;">
-
-### 📊 INTERFACE COM PROGRESSO
-
-Interface simples com:
-
-- Barra de progresso  
-- Status com total em bytes  
-- Saída formatada automaticamente  
-
-<br>
-</td>
-</tr>
-
-</table>
+A aplicação automatiza todo esse processo, interpretando cada linha, validando a estrutura e gerando o resultado com as posições corretas em bytes.
 
 ---
 
-## 🚀 Como usar
+## ⚙️ O que o sistema faz
 
-1. Cole sua estrutura Natural no campo principal  
-2. Clique em **Processar**  
-3. Aguarde o cálculo automático  
-4. Visualize os offsets gerados  
-5. Confira o tamanho total na barra inferior  
+O aplicativo lê a estrutura informada, identifica cada variável e aplica automaticamente as regras de cálculo conforme o padrão Natural.
+
+Durante o processamento, ele:
+
+- Interpreta o nível da variável (01, 02, etc.)
+- Identifica o nome e o tipo
+- Extrai os parâmetros dentro dos parênteses
+- Valida a estrutura completa
+- Calcula o tamanho em bytes
+- Define a posição inicial e final (offset)
+- Gera a saída já comentada
+
+Tudo isso em uma única execução.
 
 ---
 
-## 🎯 Problema resolvido
+## 🧠 Inteligência de cálculo
 
-- Cálculo manual de tamanho de variáveis  
-- Erros humanos em offsets  
-- Dificuldade em interpretar estruturas Natural  
-- Inconsistências em definições legadas  
+O sistema não apenas soma tamanhos — ele entende as particularidades do Natural.
+
+Tipos diferentes seguem regras diferentes:
+
+- **A (Alfanumérico):** tamanho direto
+- **N (Numérico):** considera dígitos e decimais
+- **P (Packed):** cálculo especial com divisão por 2 e arredondamento
+- **L, D, T, C:** tratados como tipos especiais (sem tamanho explícito)
+
+Além disso, o parser também entende estruturas mais complexas:
+
+- `,` → casas decimais  
+- `/` → multiplicadores  
+- `:` → intervalos  
+
+Essas regras são aplicadas automaticamente sem necessidade de intervenção manual.
 
 ---
 
-## 📊 Exemplo
+## 📏 Resultado gerado
 
-**Entrada:**
+A saída é estruturada com as posições calculadas ao lado de cada variável:
