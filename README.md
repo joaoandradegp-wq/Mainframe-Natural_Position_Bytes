@@ -1,4 +1,4 @@
-<h1 align="center">📊 Natural Variable Size Analyzer</h1>
+<h1 align="center">📊 Natural Position Bytes</h1>
 
 <p align="center">
 Ferramenta para análise, validação e cálculo automático de tamanho de variáveis em estruturas Natural (Adabas).
