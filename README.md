@@ -10,6 +10,8 @@ Ferramenta para análise e cálculo automático de posições (bytes) em estrutu
   <img src="https://img.shields.io/badge/Tipo-Utility-lightgrey">
 </p>
 
+---
+
 <h2>📌 Sobre</h2>
 
 <p>
@@ -23,6 +25,8 @@ Em vez de calcular manualmente o tamanho e as posições de cada campo, a ferram
 <p>
 Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de código legado.
 </p>
+
+---
 
 <h2>⚙️ O que ele faz</h2>
 
@@ -124,11 +128,15 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li>Componentes nativos</li>
 </ul>
 
+---
+
 <h2>📸 Preview</h2>
 
 <p align="center">
   <img width="500" height="356" alt="image" src="https://github.com/user-attachments/assets/23afe9f7-105d-4897-97da-443b25e46d83" />
 </p>
+
+---
 
 <h2>📥 Download</h2>
 
@@ -137,6 +145,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
     <img src="https://img.shields.io/badge/Download-Natural%20Position%20Bytes-blue?style=for-the-badge">
   </a>
 </p>
+
+---
 
 <p align="center">
 Ferramenta feita para evitar cálculo manual em estruturas Natural
