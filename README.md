@@ -142,7 +142,7 @@ A aplicação possui uma interface simples e funcional:
 ## 📸 Preview
 
 <p align="center">
-  <i>(Adicione aqui um print da aplicação)</i>
+  
   <img width="500" height="356" alt="image" src="https://github.com/user-attachments/assets/23afe9f7-105d-4897-97da-443b25e46d83" />
 
 </p>
