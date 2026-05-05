@@ -149,5 +149,5 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
 ---
 
 <p align="center">
-Ferramenta feita para evitar cálculo manual em estruturas Natural
+Ferramenta feita para evitar cálculo manual em estruturas Natural 🤖
 </p>
