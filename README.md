@@ -10,14 +10,58 @@ Ferramenta para análise e cálculo automático de posições (bytes) em estrutu
   <img src="https://img.shields.io/badge/Tipo-Utility-lightgrey">
 </p>
 
----
+<h2>📌 Sobre</h2>
 
-## 📌 Sobre
+<p>
+O <b>Natural Position Bytes</b> foi criado para facilitar a análise de estruturas de variáveis em sistemas legados escritos em Natural.
+</p>
 
-O **Natural Position Bytes** foi criado para resolver um problema clássico em sistemas legados:  
-o cálculo manual de posições e tamanho de variáveis em estruturas Natural.
+<p>
+Em vez de calcular manualmente o tamanho e as posições de cada campo, a ferramenta interpreta a estrutura, valida a sintaxe e gera automaticamente os offsets em bytes.
+</p>
 
-Ao trabalhar com definições como:
+<p>
+Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de código legado.
+</p>
+
+<h2>⚙️ O que ele faz</h2>
+
+<p>Durante o processamento, o aplicativo:</p>
+
+<ul>
+  <li>Lê cada linha da estrutura Natural</li>
+  <li>Identifica nível, nome e tipo da variável</li>
+  <li>Extrai e interpreta os parâmetros</li>
+  <li>Valida possíveis erros de sintaxe</li>
+  <li>Calcula o tamanho em bytes</li>
+  <li>Define posição inicial e final (offset)</li>
+  <li>Gera a saída já comentada</li>
+</ul>
+
+<p>Tudo isso acontece automaticamente em uma única execução.</p>
+
+<h2>🧠 Regras de cálculo</h2>
+
+<p>A ferramenta aplica as regras do próprio Natural para cada tipo:</p>
+
+<ul>
+  <li><b>A (Alfanumérico):</b> tamanho direto</li>
+  <li><b>N (Numérico):</b> considera dígitos e decimais</li>
+  <li><b>P (Packed):</b> cálculo com divisão por 2 e arredondamento</li>
+  <li><b>L, D, T, C:</b> tratados como tipos especiais</li>
+</ul>
+
+<p>Também entende estruturas mais avançadas:</p>
+
+<ul>
+  <li><code>,</code> define casas decimais</li>
+  <li><code>/</code> atua como multiplicador</li>
+  <li><code>:</code> define intervalos</li>
+</ul>
+
+<h2>📊 Exemplo</h2>
+
+<p><b>Entrada:</b></p>
 
 <pre>
 01 CLIENTE (A10)
@@ -25,54 +69,7 @@ Ao trabalhar com definições como:
 02 SALDO (P7,2)
 </pre>
 
-é comum precisar calcular manualmente offsets, tamanhos e regras específicas de cada tipo — o que é propenso a erro e consome tempo.
-
-A aplicação automatiza todo esse processo, interpretando cada linha, validando a estrutura e gerando o resultado com as posições corretas em bytes.
-
----
-
-## ⚙️ O que o sistema faz
-
-O aplicativo lê a estrutura informada, identifica cada variável e aplica automaticamente as regras de cálculo conforme o padrão Natural.
-
-Durante o processamento, ele:
-
-- Interpreta o nível da variável (01, 02, etc.)
-- Identifica o nome e o tipo
-- Extrai os parâmetros dentro dos parênteses
-- Valida a estrutura completa
-- Calcula o tamanho em bytes
-- Define a posição inicial e final (offset)
-- Gera a saída já comentada
-
-Tudo isso em uma única execução.
-
----
-
-## 🧠 Inteligência de cálculo
-
-O sistema não apenas soma tamanhos — ele entende as particularidades do Natural.
-
-Tipos diferentes seguem regras diferentes:
-
-- **A (Alfanumérico):** tamanho direto  
-- **N (Numérico):** considera dígitos e decimais  
-- **P (Packed):** cálculo especial com divisão por 2 e arredondamento  
-- **L, D, T, C:** tratados como tipos especiais  
-
-Além disso, o parser também entende estruturas mais complexas:
-
-- `,` → casas decimais  
-- `/` → multiplicadores  
-- `:` → intervalos  
-
-Essas regras são aplicadas automaticamente sem necessidade de intervenção manual.
-
----
-
-## 📏 Resultado gerado
-
-A saída é estruturada com as posições calculadas ao lado de cada variável:
+<p><b>Saída:</b></p>
 
 <pre>
 01 CLIENTE (A10)  /* 001 - 010
@@ -80,76 +77,60 @@ A saída é estruturada com as posições calculadas ao lado de cada variável:
 02 SALDO (P7,2)   /* 014 - XXX
 </pre>
 
-Isso permite visualizar rapidamente o layout completo da estrutura em memória.
+<h2>🚀 Como usar</h2>
 
----
+<ol>
+  <li>Cole a estrutura Natural no campo principal</li>
+  <li>Clique em <b>Processar</b></li>
+  <li>Aguarde o processamento</li>
+  <li>Veja o resultado com os offsets calculados</li>
+  <li>Confira o total em bytes na barra inferior</li>
+</ol>
 
-## 🚀 Como usar
+<h2>🎯 O que isso resolve</h2>
 
-1. Cole a estrutura Natural no campo principal  
-2. Clique em **Processar**  
-3. Aguarde a execução  
-4. Visualize o resultado com offsets  
-5. Confira o tamanho total na barra inferior  
+<ul>
+  <li>Evita cálculo manual de offsets</li>
+  <li>Reduz erros em variáveis Packed (P)</li>
+  <li>Ajuda a entender estruturas antigas</li>
+  <li>Acelera análise de código Natural</li>
+</ul>
 
----
+<h2>⚠️ Validações</h2>
 
-## 🎯 Problemas que resolve
+<p>O sistema interrompe o processamento quando encontra problemas como:</p>
 
-O **Natural Position Bytes** elimina tarefas manuais repetitivas e reduz erros comuns, como:
+<ul>
+  <li>Parênteses não fechados</li>
+  <li>Tipos inválidos</li>
+  <li>Estruturas inconsistentes</li>
+  <li>Uso incorreto de REDEFINES</li>
+</ul>
 
-- Cálculo incorreto de offsets  
-- Erros em variáveis Packed (P)  
-- Interpretação errada de estruturas com repetição  
-- Dificuldade em validar estruturas legadas  
-- Perda de tempo com conferência manual  
+<h2>🖥️ Interface</h2>
 
----
+<ul>
+  <li>Área de entrada para colar a estrutura</li>
+  <li>Saída com resultado formatado</li>
+  <li>Barra de progresso</li>
+  <li>Status com tamanho total em bytes</li>
+</ul>
 
-## ⚠️ Validações automáticas
+<h2>🛠️ Tecnologias</h2>
 
-Durante o processamento, o sistema protege contra inconsistências:
+<ul>
+  <li>Delphi 7</li>
+  <li>VCL (Visual Component Library)</li>
+  <li>Componentes nativos</li>
+</ul>
 
-- Parênteses não fechados  
-- Tipos de variáveis inválidos  
-- Estruturas mal formadas  
-- Uso incorreto de `REDEFINES` (COBOL)  
-- Variáveis sem definição adequada  
-
-Caso algum erro seja encontrado, o processamento é interrompido e o ponto exato é destacado.
-
----
-
-## 🖥️ Interface
-
-A aplicação possui uma interface simples e funcional:
-
-- Área de entrada para colar a estrutura  
-- Área de saída com resultado formatado  
-- Barra de progresso durante execução  
-- Status com tamanho total em bytes  
-
----
-
-## 🛠️ Tecnologias
-
-- Delphi 7  
-- VCL (Visual Component Library)  
-- Componentes nativos (Memo, Gauge, StatusBar)  
-
----
-
-## 📸 Preview
+<h2>📸 Preview</h2>
 
 <p align="center">
-  
   <img width="500" height="356" alt="image" src="https://github.com/user-attachments/assets/23afe9f7-105d-4897-97da-443b25e46d83" />
-
 </p>
 
----
-
-## 📥 Download
+<h2>📥 Download</h2>
 
 <p align="center">
   <a href="#">
@@ -157,8 +138,6 @@ A aplicação possui uma interface simples e funcional:
   </a>
 </p>
 
----
-
 <p align="center">
-Feito para automatizar o que antes era manual em sistemas Natural 😄
+Ferramenta feita para evitar cálculo manual em estruturas Natural
 </p>
