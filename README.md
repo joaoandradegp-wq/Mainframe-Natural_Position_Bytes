@@ -44,6 +44,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
 
 <p>Tudo isso acontece automaticamente em uma única execução.</p>
 
+---
+
 <h2>🧠 Regras de cálculo</h2>
 
 <p>A ferramenta aplica as regras do próprio Natural para cada tipo:</p>
@@ -63,6 +65,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li><code>:</code> define intervalos</li>
 </ul>
 
+---
+
 <h2>📊 Exemplo</h2>
 
 <p><b>Entrada:</b></p>
@@ -81,6 +85,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
 02 SALDO (P7,2)   /* 014 - XXX
 </pre>
 
+---
+
 <h2>🚀 Como usar</h2>
 
 <ol>
@@ -91,6 +97,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li>Confira o total em bytes na barra inferior</li>
 </ol>
 
+---
+
 <h2>🎯 O que isso resolve</h2>
 
 <ul>
@@ -99,6 +107,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li>Ajuda a entender estruturas antigas</li>
   <li>Acelera análise de código Natural</li>
 </ul>
+
+---
 
 <h2>⚠️ Validações</h2>
 
@@ -111,6 +121,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li>Uso incorreto de REDEFINES</li>
 </ul>
 
+---
+
 <h2>🖥️ Interface</h2>
 
 <ul>
@@ -119,6 +131,8 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
   <li>Barra de progresso</li>
   <li>Status com tamanho total em bytes</li>
 </ul>
+
+---
 
 <h2>🛠️ Tecnologias</h2>
 
@@ -138,16 +152,6 @@ Isso reduz erros e acelera bastante o trabalho em manutenção e entendimento de
 
 ---
 
-<h2>📥 Download</h2>
-
 <p align="center">
-  <a href="#">
-    <img src="https://img.shields.io/badge/Download-Natural%20Position%20Bytes-blue?style=for-the-badge">
-  </a>
-</p>
-
----
-
-<p align="center">
-Ferramenta feita para evitar cálculo manual em estruturas Natural 🤖
+Ferramenta feita para evitar cálculo manual em estruturas Natural. 🤖
 </p>
